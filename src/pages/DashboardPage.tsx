@@ -16,16 +16,16 @@ const DashboardPage = () => {
     return (
         <div className="min-h-screen bg-gray-900 text-white p-6">
             {/* Header */}
-            <div className="flex justify-between items-center mb-12">
-                <div className="text-red-500">
+            <div className="flex justify-between items-center mb-12 relative">
+                <div className="text-red-500 z-10">
                     <Grid size={24} />
                 </div>
 
-                <div className="flex justify-center">
-                    <img src="/Colgate-Logo.png" alt="Colgate Logo" className="h-20 object-contain" />
+                <div className="absolute left-1/2 transform -translate-x-1/2">
+                    <img src="/Colgate-Logo.png" alt="Colgate Logo" className="h-32 object-contain" />
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 z-10">
                     <button
                         onClick={() => navigate('/qr-code')}
                         className="w-10 h-10 rounded-full bg-white text-gray-900 flex items-center justify-center hover:bg-gray-200 transition-colors"
