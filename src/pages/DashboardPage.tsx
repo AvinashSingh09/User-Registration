@@ -21,16 +21,8 @@ const DashboardPage = () => {
                     <Grid size={24} />
                 </div>
 
-                <div className="text-center">
-                    <div className="flex justify-center mb-2">
-                        {/* Logo Placeholder - You can replace this with an actual image later */}
-                        <div className="text-4xl font-black italic tracking-tighter bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
-                            SCREAM
-                        </div>
-                    </div>
-                    <div className="text-3xl font-black italic tracking-tighter text-white">
-                        ELECTRIC
-                    </div>
+                <div className="flex justify-center">
+                    <img src="/Colgate-Logo.png" alt="Colgate Logo" className="h-20 object-contain" />
                 </div>
 
                 <div className="flex items-center gap-4">
