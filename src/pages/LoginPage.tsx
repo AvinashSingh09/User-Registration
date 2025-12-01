@@ -95,13 +95,7 @@ const LoginPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-between text-sm">
-                        <label className="flex items-center text-gray-600 hover:text-gray-800 cursor-pointer">
-                            <input type="checkbox" className="form-checkbox h-4 w-4 text-red-600 rounded border-gray-300 focus:ring-red-500" />
-                            <span className="ml-2">Remember me</span>
-                        </label>
-                        <a href="#" className="text-red-600 hover:text-red-700 transition-colors font-medium">Forgot password?</a>
-                    </div>
+
 
                     <button
                         type="submit"
