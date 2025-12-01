@@ -45,7 +45,7 @@ const QrCodePage = () => {
                     <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-6">
                         <QRCodeSVG
                             value={JSON.stringify(qrData)}
-                            size={250}
+                            size={350}
                             level="H"
                             includeMargin={true}
                         />
