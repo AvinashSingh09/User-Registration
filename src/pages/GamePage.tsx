@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import { makeRequest, API_CONFIG } from '../services/api';
+import LeaderboardModal from '../components/LeaderboardModal';
 
 const GamePage = () => {
     const { gameId } = useParams();
@@ -12,6 +13,7 @@ const GamePage = () => {
     const [gameData, setGameData] = useState<any>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [showLeaderboard, setShowLeaderboard] = useState(false);
 
     const getGameConfig = (id: string | undefined) => {
         switch (id) {
@@ -84,6 +86,14 @@ const GamePage = () => {
                 >
                     <ArrowLeft size={20} />
                     Back
+                </button>
+
+                <button
+                    onClick={() => setShowLeaderboard(true)}
+                    className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors font-semibold shadow-lg"
+                >
+                    <Trophy size={20} />
+                    Leaderboard
                 </button>
             </div>
 
@@ -180,6 +190,13 @@ const GamePage = () => {
                     </div>
                 </motion.div>
             </div>
+
+            <LeaderboardModal
+                isOpen={showLeaderboard}
+                onClose={() => setShowLeaderboard(false)}
+                gameSlug={game.slug}
+                gameTitle={game.title}
+            />
         </div>
     );
 };

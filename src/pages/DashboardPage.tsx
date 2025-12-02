@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { Zap, Dumbbell, Target, Grid, Gamepad2, User as UserIcon, QrCode } from 'lucide-react';
+import { Zap, Dumbbell, Target, Grid, Gamepad2, User as UserIcon, QrCode, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
+import OverallLeaderboardModal from '../components/OverallLeaderboardModal';
+import { useState } from 'react';
 
 const DashboardPage = () => {
     const navigate = useNavigate();
+    const [showOverallLeaderboard, setShowOverallLeaderboard] = useState(false);
 
     const games = [
         { id: 'batak-pro', title: 'Batak Pro', icon: Zap, path: '/game/batak-pro' },
@@ -15,11 +18,15 @@ const DashboardPage = () => {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white p-6">
-            {/* Header */}
             <div className="flex justify-between items-center mb-12 relative">
-                <div className="text-red-500 z-10">
-                    <Grid size={24} />
-                </div>
+                <button
+                    onClick={() => setShowOverallLeaderboard(true)}
+                    className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors font-semibold shadow-lg z-10"
+                    title="Overall Leaderboard"
+                >
+                    <Trophy size={18} />
+                    <span className="text-sm hidden md:inline">Overall Leaderboard</span>
+                </button>
 
                 <div className="absolute left-1/2 transform -translate-x-1/2">
                     <img src="/Colgate-Logo.png" alt="Colgate Logo" className="h-32 object-contain" />
@@ -60,6 +67,11 @@ const DashboardPage = () => {
                     </motion.button>
                 ))}
             </div>
+
+            <OverallLeaderboardModal
+                isOpen={showOverallLeaderboard}
+                onClose={() => setShowOverallLeaderboard(false)}
+            />
         </div>
     );
 };
