@@ -1,26 +1,27 @@
 import { useNavigate } from 'react-router-dom';
-import { Zap, Dumbbell, Target, Grid, Gamepad2, User as UserIcon, QrCode, Trophy } from 'lucide-react';
+import { Zap, User as UserIcon, QrCode, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
-import OverallLeaderboardModal from '../components/OverallLeaderboardModal';
-import { useState } from 'react';
+import { PunchIcon } from '../components/icons/PunchIcon';
+import { BowIcon } from '../components/icons/BowIcon';
+import { PuzzleIcon } from '../components/icons/PuzzleIcon';
+import { BoxIcon } from '../components/icons/BoxIcon';
 
 const DashboardPage = () => {
     const navigate = useNavigate();
-    const [showOverallLeaderboard, setShowOverallLeaderboard] = useState(false);
 
     const games = [
         { id: 'batak-pro', title: 'Batak Pro', icon: Zap, path: '/game/batak-pro' },
-        { id: 'power-punch', title: 'Power Punch Max Fresh', icon: Dumbbell, path: '/game/power-punch-max-fresh' },
-        { id: 'arrow-game', title: 'Arrow Game', icon: Target, path: '/game/arrow-game' },
-        { id: 'planogram', title: 'Planogram Game', icon: Grid, path: '/game/planogram-game' },
-        { id: 'purple-game', title: 'Purple Game', icon: Gamepad2, path: '/game/purple-game' },
+        { id: 'power-punch', title: 'Power Punch Max Fresh', icon: PunchIcon, path: '/game/power-punch-max-fresh' },
+        { id: 'arrow-game', title: 'Arrow Game', icon: BowIcon, path: '/game/arrow-game' },
+        { id: 'planogram', title: 'Planogram Game', icon: PuzzleIcon, path: '/game/planogram-game' },
+        { id: 'purple-game', title: 'Purple Game', icon: BoxIcon, path: '/game/purple-game' },
     ];
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white p-6">
+        <div className="min-h-screen text-white p-6">
             <div className="flex justify-between items-center mb-12 relative">
                 <button
-                    onClick={() => setShowOverallLeaderboard(true)}
+                    onClick={() => navigate('/leaderboard')}
                     className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors font-semibold shadow-lg z-10"
                     title="Overall Leaderboard"
                 >
@@ -67,11 +68,6 @@ const DashboardPage = () => {
                     </motion.button>
                 ))}
             </div>
-
-            <OverallLeaderboardModal
-                isOpen={showOverallLeaderboard}
-                onClose={() => setShowOverallLeaderboard(false)}
-            />
         </div>
     );
 };

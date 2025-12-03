@@ -15,7 +15,7 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white p-6 relative">
+        <div className="min-h-screen text-white p-6 relative">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
                 <button

@@ -77,7 +77,7 @@ const GamePage = () => {
     }, [gameId, user?.token, game.slug]);
 
     return (
-        <div className="min-h-screen bg-gray-900 text-white p-6">
+        <div className="min-h-screen text-white p-6">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
                 <button

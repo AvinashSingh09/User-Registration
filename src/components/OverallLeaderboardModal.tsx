@@ -136,8 +136,8 @@ const OverallLeaderboardModal = ({ isOpen, onClose }: OverallLeaderboardModalPro
                                             <div
                                                 key={entry.userId}
                                                 className={`rounded-xl border overflow-hidden ${entry.rank <= 3
-                                                        ? 'bg-yellow-50 border-yellow-200'
-                                                        : 'bg-gray-50 border-gray-100'
+                                                    ? 'bg-yellow-50 border-yellow-200'
+                                                    : 'bg-gray-50 border-gray-100'
                                                     }`}
                                             >
                                                 <div
